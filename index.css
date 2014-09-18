@@ -10,6 +10,12 @@ body{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	opacity: 1;
+	margin:0;
+  	padding:0;
+  	-webkit-background-size: cover; /* pour Chrome et Safari */
+  	-moz-background-size: cover; /* pour Firefox */
+  	-o-background-size: cover; /* pour Opera */
+  	background-size: cover; /* version standardisée */
 }
 h1{
 	text-align: center;
@@ -29,9 +35,10 @@ h2{
 	font-style: italic;
 	font-size: 20px;
 	border: 2px solid black;
+	text-align: justify;
 }
 h3{
-	margin-left: 80%;
+	margin-left: 81%;
 	position: absolute;
 	color: white;
 	font-style: italic;
