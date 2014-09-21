@@ -1,5 +1,5 @@
-function Case(caseX, caseY){
+function Case(caseX, caseY, contenuIn){
 	this.x = caseX;
 	this.y = caseY;
-	this.contenue = null;
+	this.contenue = contenuIn;
 }
