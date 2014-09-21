@@ -1,6 +1,7 @@
 *****BLOCK*****
 indestructible:0
 destructible:1 to 9\\en fonction des pv
+vide:n
 ****FIN  BLOCK*****
 
 ****PLAYER*****
