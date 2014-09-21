@@ -22,7 +22,7 @@ body{
 h1{
 	text-align: center;
 	font-style: italic;
-	font-family: Impact;
+	font-family: 'street';
 	margin-left: 30%;
 	margin-right: 30%;
 	color:white;
@@ -44,4 +44,8 @@ aside{
 	color: white;
 	text-align: center;
 	margin-top: 5%;
+}
+@font-face {
+  font-family: 'street';
+  src: url('street cred.ttf');
 }
