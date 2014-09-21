@@ -1,4 +1,4 @@
-function terrain(){
+function Terrain(){
 	this.map=[];
 
 	this.loadMap=function(mapPlan){
