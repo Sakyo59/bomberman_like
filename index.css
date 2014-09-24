@@ -1,13 +1,20 @@
 canvas {
 	border:2px solid black;
-	width: 500px;
+	border-radius: 15px;
+	width: 600px;
 	height: 500px;
+<<<<<<< HEAD
 	margin-right: 25%;
 	margin-left: 40%;
 	position: absolute;
+=======
+	float: left;
+	margin-left: 10%;
+	display: inline-block;
+>>>>>>> origin/master
 }
 body{
-	background:url("superbombe.jpg") scroll;
+	background:url("bombinette.jpg") scroll;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	opacity: 1;
@@ -21,32 +28,30 @@ body{
 h1{
 	text-align: center;
 	font-style: italic;
-	margin: 4% 6%;
+	font-family: 'street';
+	margin-left: 30%;
+	margin-right: 30%;
 	color:white;
-	font-size: 30px;
-	border: 3px solid black;
-	border-radius: 15px;
-	margin-left: 40%;
-	margin-right: 40%;
+	font-size: 40px;
 }
-h2{
-	margin-left: 80%;
-	position: absolute;
-	color: white;
-	font-style: italic;
-	font-size: 20px;
-	border: 2px solid black;
-	text-align: justify;
+header{
+	width:99%;
+	height: 100px;
 }
-h3{
-	margin-left: 81%;
-	position: absolute;
+article{
+	width: 99%;
+	height: 500px;
+}
+aside{
+	width: 250px;
+	height: 350px;
+	float: right;
+	display: inline-block;
 	color: white;
-	font-style: italic;
-	top:30%;
-	font-size: 15px;
-	border: 2px solid black;
-	width: 200px;
-	height: 210px;
-	text-align: justify;
+	text-align: center;
+	margin-top: 5%;
+}
+@font-face {
+  font-family: 'street';
+  src: url('street cred.ttf');
 }

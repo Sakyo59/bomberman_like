@@ -1,0 +1,18 @@
+*****BLOCK*****
+indestructible:0
+destructible:1 to 9\\en fonction des pv
+vide:n
+****FIN  BLOCK*****
+
+****PLAYER*****
+joueur1:a
+joueur2:b
+joueur3:c
+joueur4:d
+****FIN PLAYER****
+
+****ENEMY****
+ennemie1:x
+ennemie2:y
+ennemie3:z
+****ENEMY****
