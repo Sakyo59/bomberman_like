@@ -1,7 +1,7 @@
 function Player(origineX,origineY,nomJoueur){
-	this.x = OrigineX;
-	this.y = OrigineY;
-	this.nom =NomJoueur;
+	this.x = origineX;
+	this.y = origineY;
+	this.nom =nomJoueur;
 	this.direction=2; //1=haut 2=droite 3=bas 4=gauche
 	this.poseBombeMax=5;
 	this.bombePose=0;

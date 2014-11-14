@@ -4,7 +4,7 @@ function Terrain(){
 	this.loadMap=function(mapPlan){
 		for(var indexY in mapPlan){
 			this.map.push([]);
-			for(var indexX in mapPLan[indexY]){
+			for(var indexX in mapPlan[indexY]){
 				switch(mapPlan[indexY][indexX]){
 					case 0:
 						this.map[this.map.length-1].push(new Case(indexX, indexY, new Block(true, 1)));

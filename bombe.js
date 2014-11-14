@@ -12,7 +12,7 @@ function Bombe(bombeX, bombeY, proprio){
 
 		for(var i = 1; i <= porte ; i++){
 			zone.push(new Case(this.x + i, this.y));
-			zone.push(new Case(this.x - i; this.y));
+			zone.push(new Case(this.x - i, this.y));
 			zone.push(new Case(this.x, this.y + i));
 			zone.push(new Case(this.x, this.y - i));
 		}
