@@ -12,12 +12,14 @@ function init (zoneDeJeu) {
 	terrain.loadMap(mapPlan);
 	joueur=new Player(20,20,"P1");
 	controle=new Controller(38,40,39,37,32);
+	controle.inputDroite=39;
 	dessiner=new Dessiner(context);
 
-	document.addEventListener('keyDown', function(e){
+	document.addEventListener('keydown', function(e){
 		controle.event.keyDown(e);
+		console.log(e.keyCode);
 	}, false);
-	document.addEventListener('keyUp', function(e){
+	document.addEventListener('keyup', function(e){
 		controle.event.keyUp(e);
 	}, false);
 
@@ -50,4 +52,5 @@ function loop(){
 		}
 		dessiner.joueur(joueur);
 	}
+	console.log(controle.droite);
 }

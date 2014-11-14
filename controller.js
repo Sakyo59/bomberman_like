@@ -13,17 +13,22 @@ function Controller(toucheHaut, toucheBas, toucheDroite, toucheGauche, toucheAct
 
 	this.event = {};
 	this.event.keyDown = function(e){
+		console.log(e.keyCode);
+		console.log(this.inputDroite);
+		console.log(e.keyCode==39);
 		if(e.keyCode == this.inputHaut){
 			this.haut = true;
 			this.bas = false;
 			this.droite = false;
 			this.gauche = false;
 		}
-		else if(e.keyCode == this.inputDroite){
+		else if(e.keyCode == 39){
+			console.log("droite");
 			this.haut = false;
 			this.bas = false;
 			this.droite = true;
 			this.gauche = false;
+			console.log(this.droite);
 		}
 		else if(e.keyCode == this.inputGauche){
 			this.haut = false;
@@ -44,19 +49,19 @@ function Controller(toucheHaut, toucheBas, toucheDroite, toucheGauche, toucheAct
 	}
 
 	this.event.keyUp = function(e){
-		if(e.KeyCode == this.inputHaut){
+		if(e.keyCode == this.inputHaut){
 			this.haut = false;
 		}
-		if(e.KeyCode == this.inputBas){
+		if(e.keyCode == this.inputBas){
 			this.bas = false;
 		}
-		if(e.KeyCode == this.inputGauche){
+		if(e.keyCode == this.inputGauche){
 			this.gauche = false;
 		}
-		if(e.KeyCode == this.inputDroite){
+		if(e.keyCode == this.inputDroite){
 			this.droite = false;
 		}
-		if(e.KeyCode == this.inputBombe){
+		if(e.keyCode == this.inputBombe){
 			this.bombe = false;
 		}
 	}
