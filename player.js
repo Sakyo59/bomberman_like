@@ -5,19 +5,19 @@ function Player(origineX,origineY,nomJoueur){
 	this.direction=2; //1=haut 2=droite 3=bas 4=gauche
 	this.poseBombeMax=5;
 	this.bombePose=0;
-	this.mP=5;
+	this.mP=2;
 
 	this.haut=function(){
-		this.x=this.x-this.mP;
-	}
-	this.bas=function(){
-		this.x=this.x+this.mP;
-	}
-	this.gauche=function(){
 		this.y=this.y-this.mP;
 	}
-	this.droite=function(){
+	this.bas=function(){
 		this.y=this.y+this.mP;
+	}
+	this.gauche=function(){
+		this.x=this.x-this.mP;
+	}
+	this.droite=function(){
+		this.x=this.x+this.mP;
 	}
 	this.poserUneBombe=function(){
 		var bombe=null;

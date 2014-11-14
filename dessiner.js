@@ -29,4 +29,7 @@ function Dessiner(context){
 		context.fillRect(bombe.x*20,bombe.y*20,20,20);
 		context.closePath();
 	}
+	this.clearContext=function(){
+		context.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+	}
 }

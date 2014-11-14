@@ -16,11 +16,10 @@ function init (zoneDeJeu) {
 	dessiner=new Dessiner(context);
 
 	document.addEventListener('keydown', function(e){
-		controle.event.keyDown(e);
-		console.log(e.keyCode);
+		controle.keyDown(e);
 	}, false);
 	document.addEventListener('keyup', function(e){
-		controle.event.keyUp(e);
+		controle.keyUp(e);
 	}, false);
 
 	var time = setInterval(function(){
@@ -29,18 +28,19 @@ function init (zoneDeJeu) {
 }
 
 function loop(){
-	if(controle.haut==true){
-		joueur.haut;
+	if(controle.haut==true && joueur.y>0){
+		joueur.haut();
 	}
-	else if(controle.bas==true){
-		joueur.bas;
+	else if(controle.bas==true && joueur.y<context.canvas.height-20){
+		joueur.bas();
 	}
-	else if(controle.gauche==true){
-		joueur.gauche;
+	else if(controle.gauche==true && joueur.x>0){
+		joueur.gauche();
 	}
-	else if(controle.droite==true){
-		joueur.droite;
+	else if(controle.droite==true && joueur.x<context.canvas.width-20){
+		joueur.droite(); 	
 	}
+	dessiner.clearContext();
 	for(rows in terrain.map){
 		for(cell in rows){
 			if(cell.contenue != null){
@@ -52,5 +52,4 @@ function loop(){
 		}
 		dessiner.joueur(joueur);
 	}
-	console.log(controle.droite);
 }
