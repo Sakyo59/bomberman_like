@@ -45,13 +45,42 @@ function loop(){
 		if(terrain.map[bombe.y][bombe.x].contenue==null){
 			terrain.map[bombe.y][bombe.x].contenue=bombe;	
 		}
-
 	}
+
+	for(rows in terrain.map){
+		for(cell in terrain.map[rows]){
+			if(terrain.map[rows][cell].contenue != null){
+				if(typeof(terrain.map[rows][cell].contenue.unbreakable)=="undefined"){
+					terrain.map[rows][cell].contenue.timer++;
+
+					if(terrain.map[rows][cell].contenue.timer == terrain.map[rows][cell].contenue.timerBeforeEplosion){
+						var zone = [];
+						zone = terrain.map[rows][cell].contenue.explose();
+						for(index in zone){
+							if(zone[index].y >= 0 && zone[index].y <= terrain.map.length - 1 && zone[index].x>=0 && zone[index].x<= terrain.map[zone[index].y].length -1 && terrain.map[zone[index].y][zone[index].x].contenue != null && terrain.map[zone[index].y][zone[index].x].contenue.unbreakable==false){
+								terrain.map[zone[index].y][zone[index].x].contenue=null;
+							}
+						}
+						terrain.map[rows][cell].contenue = null;
+					}
+				}
+			}
+		}
+	}
+
+
+
+
 	dessiner.clearContext();
 	for(rows in terrain.map){
 		for(cell in terrain.map[rows]){
 			if(terrain.map[rows][cell].contenue != null){
-				dessiner.block(terrain.map[rows][cell].contenue,terrain.map[rows][cell].x,terrain.map[rows][cell].y);
+				if(typeof(terrain.map[rows][cell].contenue.unbreakable)=="undefined"){
+					dessiner.bombe(terrain.map[rows][cell].contenue);
+				}
+				else{
+					dessiner.block(terrain.map[rows][cell].contenue,terrain.map[rows][cell].x,terrain.map[rows][cell].y);
+				}
 			}
 			else{
 				dessiner.vide(terrain.map[rows][cell]);
