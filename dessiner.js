@@ -3,7 +3,7 @@ function Dessiner(context){
 	this.joueur=function(player){
 		context.beginPath();
 		context.fillStyle="rgb(0,0,255)";
-		context.fillRect(player.x,player.y,20,20);
+		context.fillRect(player.x,player.y,15,15);
 		context.closePath();
 	}
 	this.block=function(block,x,y){

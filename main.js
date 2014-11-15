@@ -28,26 +28,33 @@ function init (zoneDeJeu) {
 }
 
 function loop(){
-	if(controle.haut==true && joueur.y>0){
+	if(controle.haut==true && joueur.y>0 && terrain.map[Math.floor((joueur.y-joueur.mP)/20)][Math.floor(joueur.x/20)].contenue === null && terrain.map[Math.floor((joueur.y-joueur.mP)/20)][Math.floor((joueur.x+15)/20)].contenue === null){
 		joueur.haut();
 	}
-	else if(controle.bas==true && joueur.y<context.canvas.height-20){
+	else if(controle.bas==true && joueur.y<context.canvas.height-20 && terrain.map[Math.floor((joueur.y+15+joueur.mP)/20)][Math.floor(joueur.x/20)].contenue === null && terrain.map[Math.floor((joueur.y+15+joueur.mP)/20)][Math.floor((joueur.x+15)/20)].contenue === null ){
 		joueur.bas();
 	}
-	else if(controle.gauche==true && joueur.x>0){
+	else if(controle.gauche==true && joueur.x>0 && terrain.map[Math.floor(joueur.y/20)][Math.floor((joueur.x-joueur.mP)/20)].contenue === null && terrain.map[Math.floor((joueur.y+15)/20)][Math.floor((joueur.x-joueur.mP)/20)].contenue === null){
 		joueur.gauche();
 	}
-	else if(controle.droite==true && joueur.x<context.canvas.width-20){
+	else if(controle.droite==true && joueur.x<context.canvas.width-20 && terrain.map[Math.floor((joueur.y)/20)][Math.floor((joueur.x+15+joueur.mP)/20)].contenue === null && terrain.map[Math.floor((joueur.y+15)/20)][Math.floor((joueur.x+15+joueur.mP)/20)].contenue === null){
 		joueur.droite(); 	
+	}
+	if(controle.bombe==true){
+		var bombe=joueur.poserUneBombe();
+		if(terrain.map[bombe.y][bombe.x].contenue==null){
+			terrain.map[bombe.y][bombe.x].contenue=bombe;	
+		}
+
 	}
 	dessiner.clearContext();
 	for(rows in terrain.map){
-		for(cell in rows){
-			if(cell.contenue != null){
-				dessiner.block(cell.contenue,cell.x,cell.y);
+		for(cell in terrain.map[rows]){
+			if(terrain.map[rows][cell].contenue != null){
+				dessiner.block(terrain.map[rows][cell].contenue,terrain.map[rows][cell].x,terrain.map[rows][cell].y);
 			}
 			else{
-				dessiner.vide(cell);
+				dessiner.vide(terrain.map[rows][cell]);
 			}
 		}
 		dessiner.joueur(joueur);

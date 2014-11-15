@@ -9,15 +9,19 @@ function Player(origineX,origineY,nomJoueur){
 
 	this.haut=function(){
 		this.y=this.y-this.mP;
+		this.direction=Direction.haut;
 	}
 	this.bas=function(){
 		this.y=this.y+this.mP;
+		this.direction=Direction.bas;
 	}
 	this.gauche=function(){
 		this.x=this.x-this.mP;
+		this.direction=Direction.gauche;
 	}
 	this.droite=function(){
 		this.x=this.x+this.mP;
+		this.direction=Direction.droite;
 	}
 	this.poserUneBombe=function(){
 		var bombe=null;
@@ -26,7 +30,7 @@ function Player(origineX,origineY,nomJoueur){
 				bombe=new Bombe(Math.floor((this.x+20)/20),Math.floor(this.y/20),this);
 			break;
 			case Direction.gauche:
-				bombe=new Bombe(Math.floor((this.x-20)/20),Math.floor(this.y/20),this);
+				bombe=new Bombe(Math.floor((this.x-this.mP)/20),Math.floor(this.y/20),this);
 			break;
 			case Direction.haut:
 				bombe=new Bombe(Math.floor(this.x/20),Math.floor((this.y-20)/20),this);
