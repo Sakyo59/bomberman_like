@@ -1,5 +1,9 @@
 function Dessiner(context){
 	this.ctx=context;
+	var unbreakableBlock=new Image();
+	unbreakableBlock.src="bloc-incassable.png";
+	var breakableBlock=new Image();
+	breakableBlock.src="bloc-cassable.png";
 	this.joueur=function(player){
 		context.beginPath();
 		context.fillStyle="rgb(0,0,255)";
@@ -9,12 +13,12 @@ function Dessiner(context){
 	this.block=function(block,x,y){
 		context.beginPath();
 		if(block.unbreakable){
-			context.fillStyle="rgb(0,0,0)";
+			context.drawImage(unbreakableBlock,x*20,y*20,20,20);
 		}
 		else{
-			context.fillStyle="rgb(255,255,255)";
+			context.drawImage(breakableBlock,x*20,y*20,20,20);
 		}
-		context.fillRect(x*20,y*20,20,20);
+
 		context.closePath();
 	}
 	this.vide=function(cellule){
