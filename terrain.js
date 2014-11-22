@@ -1,5 +1,6 @@
 function Terrain(){
 	this.map=[];
+	this.explosion=[];
 
 	this.loadMap=function(mapPlan){
 		for(var indexY in mapPlan){

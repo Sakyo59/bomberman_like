@@ -1,4 +1,4 @@
-var context;
+var context;	
 var terrain;
 var joueur;
 var controle;
@@ -54,15 +54,37 @@ function loop(){
 					terrain.map[rows][cell].contenue.timer++;
 
 					if(terrain.map[rows][cell].contenue.timer == terrain.map[rows][cell].contenue.timerBeforeEplosion){
-						var zone = [];
-						zone = terrain.map[rows][cell].contenue.explose();
-						for(index in zone){
-							if(Math.floor(joueur.x/20)==zone[index].x && Math.floor(joueur.y/20)==zone[index].y){
-								alert("Vous êtes mort =D");
+						terrain.explosion.push(terrain.map[rows][cell].contenue.explose());
+						for(index in terrain.explosion[terrain.explosion.length - 1].aoe){
+							if(Array.isArray(terrain.explosion[terrain.explosion.length - 1].aoe[index])){
+								for(indexRow in terrain.explosion[terrain.explosion.length - 1].aoe[index]){
+									if(Math.floor(joueur.x/20)==terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x && Math.floor(joueur.y/20)==terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y){
+										alert("Vous êtes mort =D");
+									}
+									if(terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y >= 0 && terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y <= terrain.map.length - 1 && terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x>=0 && terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x<= terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y].length -1 && terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y][terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x].contenue != null){
+										if (terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y][terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x].contenue.unbreakable==false) {
+											terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].y][terrain.explosion[terrain.explosion.length - 1].aoe[index][indexRow].x].contenue=null;
+										}
+										else{
+											break;
+										}
+									}
+								}
 							}
-							if(zone[index].y >= 0 && zone[index].y <= terrain.map.length - 1 && zone[index].x>=0 && zone[index].x<= terrain.map[zone[index].y].length -1 && terrain.map[zone[index].y][zone[index].x].contenue != null && terrain.map[zone[index].y][zone[index].x].contenue.unbreakable==false){
-								terrain.map[zone[index].y][zone[index].x].contenue=null;
+							else{
+								if(Math.floor(joueur.x/20)==terrain.explosion[terrain.explosion.length - 1].aoe[index].x && Math.floor(joueur.y/20)==terrain.explosion[terrain.explosion.length - 1].aoe[index].y){
+									alert("Vous êtes mort =D");
+								}
+								if(terrain.explosion[terrain.explosion.length - 1].aoe[index].y >= 0 && terrain.explosion[terrain.explosion.length - 1].aoe[index].y <= terrain.map.length - 1 && terrain.explosion[terrain.explosion.length - 1].aoe[index].x>=0 && terrain.explosion[terrain.explosion.length - 1].aoe[index].x<= terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index].y].length -1 && terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index].y][terrain.explosion[terrain.explosion.length - 1].aoe[index].x].contenue != null && terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index].y][terrain.explosion[terrain.explosion.length - 1].aoe[index].x].contenue.unbreakable==false){
+									terrain.map[terrain.explosion[terrain.explosion.length - 1].aoe[index].y][terrain.explosion[terrain.explosion.length - 1].aoe[index].x].contenue=null;
+								}
 							}
+
+
+
+
+
+							
 						}
 						terrain.map[rows][cell].contenue = null;
 					}
