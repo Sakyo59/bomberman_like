@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
 <div class="row">
     <div class="large-12 columns">
-        <h1 class="titre">Bomberman</h1>
+        <h1 class="titre">Bienvenue sur RétroLand</h1>
     </div>
 </div>
 <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
@@ -30,7 +31,7 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
-            <li class="has-submenu fuck">
+            <li class="has-submenu">
                 <a href="#">Jeux</a>
                 <ul class="submenu menu vertical" data-submenu>
                     <li><a href="Bomberman.html">Bomberman</a></li>
@@ -45,51 +46,44 @@
     </div>
 </div>
 <br>
+
 <div class="row">
     <div class="large-12 columns">
-        <h3 class="titre">Une petite envie de rétro gaming nous avons pensé à vous ! </h3>
-        <div class="large-3 columns"></div>
-        <div class="large-9 columns">
-            <p><br></p>
-            <canvas id="plateau" class="callout"></canvas>
-        </div>
+
     </div>
 </div>
 
 <div class="row">
     <div class="large-12 columns">
-        <div class="large-3 columns"></div>
-            <div class="large-9 columns">
-        Contrôles du personnage:<br/>
-       Déplacement du personnage vers le haut : flèche du haut <br/>
-            Déplacement du personnage vers la droite: Flèche de droite <br/>
-            Déplacement du personnage vers le bas:fléche du bas <br/>
-            Déplacement du personnage vers la gauche ;flèche de gauche <br/>
-            Poser une bombe: touche espace <br/>
-        </div>
+
     </div>
 </div>
+
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+        <form>
+            <div class="row column log-in-form">
+                <h4 class="text-center">Nous contacter</h4>
+                <label>Email
+                    <input type="text" placeholder="gaspard@example.com">
+                </label>
+                <label>Objet
+                    <input type="text" placeholder="">
+                </label>
+                <label>Message
+                    <textarea rows="3" cols="40" placeholder="Message"></textarea>
+                </label>
+                <p><a type="submit" class="button expanded">Envoyer</a></p>
+            </div>
+        </form>
+    </div>
 </div>
+
 
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/what-input.min.js"></script>
 <script src="js/foundation.min.js"></script>
 <script src="js/app.js"></script>
-
-<script src="explosion.js"></script>
-<script src="dessiner.js"></script>
-<script src="block.js"></script>
-<script src="player.js"></script>
-<script src="case.js"></script>
-<script src="bombe.js"></script>
-<script src="mapPlan.js"></script>
-<script src="terrain.js"></script>
-<script src="controller.js"></script>
-<script src="main.js"></script>
-
-<script>
-    init(document.getElementById("plateau"));
-</script>
 
 </body>
 </html>
